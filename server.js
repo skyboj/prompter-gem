@@ -1,8 +1,3 @@
-app.use((req, res, next) => {
-    res.setHeader("Content-Security-Policy", "default-src 'self'; font-src 'self' data:;");
-    next();
-});
-
 const express = require('express');
 const WebSocket = require('ws');
 const app = express();
@@ -10,6 +5,10 @@ const port = process.env.PORT || 3000;
 
 // Статические файлы
 app.use(express.static('public'));
+app.use((req, res, next) => {
+    res.setHeader("Content-Security-Policy", "default-src 'self'; font-src 'self' data:;");
+    next();
+});
 
 // WebSocket сервер
 const wss = new WebSocket.Server({ noServer: true });
