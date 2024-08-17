@@ -1,0 +1,13 @@
+{
+  "name": "text-sync-app",
+  "version": "1.0.0",
+  "description": "Real-time text sync between client and admin pages",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "ws": "^8.11.0"
+  }
+}
