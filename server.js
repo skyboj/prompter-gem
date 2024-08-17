@@ -1,3 +1,8 @@
+app.use((req, res, next) => {
+    res.setHeader("Content-Security-Policy", "default-src 'self'; font-src 'self' data:;");
+    next();
+});
+
 const express = require('express');
 const WebSocket = require('ws');
 const app = express();
