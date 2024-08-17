@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+        textarea {
+            width: 80%;
+            height: 60%;
+            border: 1px solid #ccc;
+            font-size: 18px;
+            padding: 10px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+    <textarea id="adminText"></textarea>
+    <button id="updateBtn">Update</button>
+    
+    <script>
+        const ws = new WebSocket(`ws://${window.location.host}`);
+        const adminText = document.getElementById('adminText');
+        const updateBtn = document.getElementById('updateBtn');
+
+        updateBtn.addEventListener('click', () => {
+            ws.send(adminText.value);
+        });
+    </script>
+</body>
+</html>
