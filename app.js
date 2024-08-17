@@ -1,7 +1,7 @@
 const inputField = document.getElementById('synced-text');
 
 // Инициализация Replicache
-const replicache = new Replicache({
+const replicache = new window.Replicache({
     name: 'my-replicache',
     mutators: {
         updateText: async (_, { text }) => {
